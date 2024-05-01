@@ -76,10 +76,10 @@ def update_figure(selected_region):
 
     # Update trace colors using update_traces method
     colors = {
-        "north": "#02353C",  # Red color for North region
-        "east": "#449342",  # Blue color for East region
-        "south": "#2EAF7D",  # Green color for South region
-        "west": "#3A461F",  # Purple color for West region
+        "north": "#02353C",
+        "east": "#449342",  
+        "south": "#2EAF7D",  
+        "west": "#3A461F",  
     }
     for i, trace in enumerate(line_fig.data):
         trace_name = trace.name
