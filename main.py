@@ -19,8 +19,10 @@ for file_name in os.listdir(data_directory):
     ].copy()  # Use .copy() to avoid modifying the original DataFrame
 
     # Process the filtered data and calculate sales
-    pink_morsel_data["price"] = pink_morsel_data["price"].str[1:].astype(float)
-    pink_morsel_data["sales"] = pink_morsel_data["price"] * pink_morsel_data["quantity"]
+    pink_morsel_data["price"] = pink_morsel_data
+    ["price"].str[1:].astype(float)
+    pink_morsel_data["sales"] = pink_morsel_data
+    ["price"] * pink_morsel_data["quantity"]
 
     # Keep only relevant columns
     pink_morsel_data = pink_morsel_data.loc[:, ["sales", "date", "region"]]
@@ -28,8 +30,8 @@ for file_name in os.listdir(data_directory):
 
     # Append filtered data to the combined DataFrame
     # excluding empty or all-NA columns
-    combined_data = combined_data._append(pink_morsel_data.dropna(), ignore_index=True)
-    # dropna() removes rows or columns from a DataFrame
+    combined_data = combined_data._append(
+        pink_morsel_data.dropna(), ignore_index=True)
 
 
 # Sort the combined DataFrame by date in ascending order (ASC)

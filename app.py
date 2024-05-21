@@ -57,6 +57,16 @@ dash_app.layout = html.Div([header, radio_button, visualization])
         [Input("region-filter", "value")]
 )
 def update_figure(selected_region):
+    """
+    Update the sales line chart based on the selected region.
+
+    Parameters:
+    - selected_region (str): The region selected from the radio button.
+                             If "All", display data for all regions.
+
+    Returns:
+    - line_fig (plotly.graph_objects.Figure): The updated line chart figure.
+    """
     if selected_region != "All":
         filtered_data = data[data["region"] == selected_region]
         line_fig = px.line(
@@ -77,9 +87,9 @@ def update_figure(selected_region):
     # Update trace colors using update_traces method
     colors = {
         "north": "#02353C",
-        "east": "#449342",  
-        "south": "#2EAF7D",  
-        "west": "#3A461F",  
+        "east": "#449342",
+        "south": "#2EAF7D",
+        "west": "#3A461F",
     }
     for i, trace in enumerate(line_fig.data):
         trace_name = trace.name
